@@ -1,0 +1,1 @@
+#include "bmprinter/BMPImage.h"
