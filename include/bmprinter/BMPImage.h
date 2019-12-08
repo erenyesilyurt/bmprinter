@@ -24,7 +24,7 @@ public:
     // Put pixel with given RGB values into the specified row and column of the image. Indexes start from (1,1) top left.
     void put(BYTE red, BYTE green, BYTE blue, int row, int col)
     {
-        if ((row > 0 && row <= _width) && (col > 0 && col <= _height)) {
+        if ((row > 0 && row <= _height) && (col > 0 && col <= _width)) {
             int pos = (row-1)*_width + (col-1);
             pixels[pos] = {red, green, blue};
         }
@@ -33,9 +33,9 @@ public:
     // prints ASCII representation of image to stdout
     void print()
     {
-        for (int r = 0; r < _width; r++) {
+        for (int r = 0; r < _height; r++) {
             printf("\n| ");
-            for (int c = 0; c < _height; c++) {
+            for (int c = 0; c < _width; c++) {
                 Pixel p = pixels[r*_width + c];
                 printf("%3d %3d %3d | ", p.red, p.green, p.blue);
             }
@@ -82,7 +82,7 @@ public:
 
         BYTE padding = 0x00;
         for (int r = 0; r < _height; r++) {
-            for (int c = 0; c < _height; c++) {
+            for (int c = 0; c < _width; c++) {
                 Pixel p = pixels[r*_width + c];
                 fwrite(&(p.blue), 1, 1, file);
                 fwrite(&(p.green), 1, 1, file);
