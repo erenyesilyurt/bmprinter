@@ -1,6 +1,6 @@
 # BMPrinter
 
-This is a header only C++ library that allows you to create an in memory image, change individual pixels in this image and save it into an uncompressed BMP file.
+This is a header only C++ library that allows you to create an image, change individual pixels in this image and save it into an uncompressed RGB .bmp file.
 
 ## Usage
 
@@ -13,13 +13,13 @@ BMPImage image(512, 512);
 Change the pixel in 4th row 3rd column to red:
 
 ```c++
-image.put(255, 0, 0, 4, 3);
+image.put(1.0, 0, 0, 4, 3);
 ```
 
 Save the image into a file:
 
 ```c++
-image.save("red.bmp");
+image.save("redpixel.bmp");
 ```
 
 See example.cpp for an example.
